@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="form-page reveal">
+  <h1>Company Partnership</h1>
+  <p>Register your company and unlock <b>15% discount</b> on bulk listings.</p>
+  <form method="post" class="form-card">
+    <input name="company_name" placeholder="Company name" required/>
+    <input name="residents" type="number" placeholder="Number of residents" required/>
+    <input name="units" type="number" placeholder="Units currently in use" required/>
+    <input name="email" type="email" placeholder="Company email" required/>
+    <button>Register Company</button>
+  </form>
+</section>
+{% endblock %}

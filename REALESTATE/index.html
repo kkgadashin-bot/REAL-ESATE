@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LuxEstate — Premium Real Estate</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="nav">
+  <div class="logo">Lux<span>Estate</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#listings">Listings</a>
+    <a href="#partners">Partners</a>
+    <a href="#request">Request</a>
+    <a href="#trends">Market Trends</a>
+    <a href="login.html" class="btn-outline">Sign In</a>
+    <a href="register.html" class="btn-fill">Register</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <h1>Find the home <span>that finds you.</span></h1>
+    <p>Curated luxury properties for sale and rent worldwide.</p>
+    <a href="#listings" class="btn-fill big">Explore Properties</a>
+  </div>
+</section>
+
+<section id="listings" class="section">
+  <h2>Properties</h2>
+  <div class="tabs">
+    <button class="tab active" data-tab="sale">For Sale</button>
+    <button class="tab" data-tab="rent">For Rent</button>
+  </div>
+
+  <div class="grid" id="grid-sale"></div>
+  <div class="grid hidden" id="grid-rent"></div>
+</section>
+
+<section id="partners" class="section dark">
+  <h2>Partner With Us</h2>
+  <p class="lead">Companies interested in collaborating with LuxEstate — list your developments, syndicate listings, or co-market premium properties.</p>
+  <form class="form">
+    <input type="text" placeholder="Company name" required/>
+    <input type="email" placeholder="Business email" required/>
+    <textarea placeholder="Tell us about your company..." rows="4"></textarea>
+    <button type="submit" class="btn-fill">Submit Partnership Request</button>
+  </form>
+</section>
+
+<section id="request" class="section">
+  <h2>Request a Property</h2>
+  <p class="lead">Can't find what you want? Tell us — our agents will source it.</p>
+  <form class="form">
+    <input type="text" placeholder="Full name" required/>
+    <input type="email" placeholder="Email" required/>
+    <input type="text" placeholder="Preferred location"/>
+    <input type="number" placeholder="Budget (USD)"/>
+    <textarea placeholder="Describe your dream property..." rows="4"></textarea>
+    <button type="submit" class="btn-fill">Send Request</button>
+  </form>
+</section>
+
+<section id="trends" class="section dark">
+  <h2>Market Trends</h2>
+  <div class="trends">
+    <div class="card-trend"><h3>+8.4%</h3><p>Luxury home values YoY</p></div>
+    <div class="card-trend"><h3>$1.2M</h3><p>Avg sale price 2026</p></div>
+    <div class="card-trend"><h3>21 days</h3><p>Avg time on market</p></div>
+    <div class="card-trend"><h3>+12%</h3><p>Rental demand growth</p></div>
+  </div>
+</section>
+
+<footer>© 2026 LuxEstate — Demo Project</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

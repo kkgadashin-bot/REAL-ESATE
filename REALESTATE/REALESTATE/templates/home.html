@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero parallax">
+  <div class="hero-inner reveal">
+    <h1>Find Your <span class="grad">Dream Home</span></h1>
+    <p>Buy, rent or short-let — thousands of verified properties.</p>
+
+    <div class="tabs">
+      <button class="tab active" data-type="sale">Buy</button>
+      <button class="tab" data-type="rent">Rent</button>
+      <button class="tab" data-type="shortlet">Short-Let</button>
+    </div>
+
+    <form id="searchForm" class="search-card">
+      <input type="hidden" name="listing_type" id="listing_type" value="sale"/>
+      <input name="location" placeholder="Location (e.g. Lekki)"/>
+      <select name="property_type">
+        <option value="">Property type</option>
+        <option value="flat">Flat</option>
+        <option value="villa">Villa</option>
+        <option value="self-contained">Self-contained</option>
+        <option value="duplex">Duplex</option>
+      </select>
+      <select name="bedrooms">
+        <option value="">Bedrooms</option>
+        {% for n in range(1,7) %}<option value="{{n}}">{{n}}+</option>{% endfor %}
+      </select>
+      <input name="min_price" type="number" placeholder="Min Price"/>
+      <input name="max_price" type="number" placeholder="Max Price"/>
+      <label><input type="checkbox" name="furnished"/> Furnished</label>
+      <label><input type="checkbox" name="serviced"/> Serviced</label>
+      <label><input type="checkbox" name="sharing"/> Sharing</label>
+      <input name="keywords" placeholder="Keywords (pool, jacuzzi...)"/>
+      <button type="submit">Search</button>
+    </form>
+    <div id="searchResults"></div>
+  </div>
+</section>
+
+<section class="featured reveal">
+  <h2>Featured Properties</h2>
+  <div class="grid">
+    {% for p in featured %}
+    <article class="card tilt">
+      <img src="{{ url_for('static', filename='images/'+p['image']) }}" onerror="this.src='https://picsum.photos/seed/{{p['id']}}/600/400'"/>
+      <div class="body">
+        <h3>{{ p['title'] }}</h3>
+        <p>{{ p['location'] }} · {{ p['bedrooms'] }} bd · {{ p['bathrooms'] }} ba</p>
+        <strong>${{ '{:,.0f}'.format(p['price']) }}</strong>
+        <span class="badge {{p['status']}}">{{ p['status'] }}</span>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="about reveal">
+  <h2>About Us</h2>
+  <p>EstateX connects buyers, renters and developers across Africa. We offer
+     verified listings, transparent pricing, and a dedicated support team.</p>
+  <div class="stats">
+    <div><h3>120K+</h3><p>Active Users</p></div>
+    <div><h3>8,400</h3><p>Listings</p></div>
+    <div><h3>320</h3><p>Agents & Developers</p></div>
+  </div>
+</section>
+{% endblock %}
