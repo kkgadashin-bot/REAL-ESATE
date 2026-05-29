@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="reveal container">
+  <h1>Market Trends</h1>
+  <div class="stats">
+    <div><h3>{{ total }}</h3><p>Total Properties</p></div>
+    <div><h3>${{ '{:,.0f}'.format(avg_sale) }}</h3><p>Avg Sale Price</p></div>
+    <div><h3>${{ '{:,.0f}'.format(avg_rent) }}</h3><p>Avg Rent / mo</p></div>
+    <div><h3>{{ occupied }}</h3><p>Occupied Units</p></div>
+    <div><h3>{{ damaged_pct }}%</h3><p>Properties with reported damages</p></div>
+  </div>
+  <p>Many older units suffer from worn plumbing, broken AC and electrical
+     faults — these defects bring down average value by ~12%.</p>
+</section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}For Sale{% endblock %}
+{% block content %}
+<section class="page-head reveal"><h1>Properties For Sale</h1>
+<p>{{ properties|length }} results</p></section>
+<div class="grid container">
+  {% for p in properties %}
+  <article class="card tilt">
+    <img src="{{ url_for('static', filename='images/'+p['image']) }}" onerror="this.src='https://picsum.photos/seed/s{{p['id']}}/600/400'"/>
+    <div class="body">
+      <h3>{{ p['title'] }}</h3>
+      <p>{{ p['location'] }}</p>
+      <ul class="meta">
+        <li>{{ p['bedrooms'] }} Bedrooms</li>
+        <li>{{ p['bathrooms'] }} Bathrooms</li>
+        <li>{{ p['property_type'] }}</li>
+        <li>{{ 'Furnished' if p['furnished'] else 'Unfurnished' }}</li>
+      </ul>
+      <strong>${{ '{:,.0f}'.format(p['price']) }}</strong>
+      <span class="badge {{p['status']}}">{{ p['status'] }}</span>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

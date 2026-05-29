@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="form-page reveal">
+  <h1>Submit a Request</h1>
+  <form method="post" class="form-card">
+    <input name="email" type="email" placeholder="Your email" required/>
+    <textarea name="message" rows="5" placeholder="Describe what you're looking for..." required></textarea>
+    <button>Send Request</button>
+  </form>
+
+  <h2 style="margin-top:40px">Recent Requests</h2>
+  <table class="tbl">
+    <tr><th>Email</th><th>Message</th><th>Status</th></tr>
+    {% for r in requests %}
+    <tr><td>{{r.user_email}}</td><td>{{r.message}}</td>
+        <td><span class="badge {{r.status}}">{{r.status}}</span></td></tr>
+    {% endfor %}
+  </table>
+</section>
+{% endblock %}
